@@ -1,0 +1,33 @@
+.switch {
+  width: 70px;
+  height: 36px;
+  border-radius: 20px;
+  background-color: var(--opposite-background-color);
+  padding: 5px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  .icon {
+    font-size: 25px;
+    color: var(--background-color);
+  }
+
+
+  .handle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 4px;
+    background-color: var(--background-color);
+    transition: transform 0.3s ease;
+
+    &.on {
+      transform: translateX(35px);
+    }
+
+  }
+}

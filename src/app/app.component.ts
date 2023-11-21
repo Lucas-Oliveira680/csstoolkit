@@ -1,9 +1,7 @@
-import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
+import { Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { ThemeService } from 'src/app/shared/services/theme.service'
 import { LanguageService } from 'src/app/shared/services/language.service'
-import { EBreakpoints } from 'src/app/shared/types/breakpoints.enum'
-import { Router } from '@angular/router'
-import { ToastService } from 'src/app/shared/services/toast.service'
+
 
 @Component({
   selector: 'app-root',
@@ -20,10 +18,6 @@ export class AppComponent implements OnInit {
   ) {}
 
 
-
-  get currentTheme() {
-    return this._themeService.currentTheme()
-  }
 
   ngOnInit() {
     const themeInLocalStorage = this._themeService.getTheme()
@@ -46,5 +40,5 @@ export class AppComponent implements OnInit {
       }
     }
   }
-  title = "csstoolkit"
+
 }

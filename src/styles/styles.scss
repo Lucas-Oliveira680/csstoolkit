@@ -1,0 +1,117 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'colors';
+@import 'typography';
+@import "reset";
+@import 'mixins';
+
+* {
+  box-sizing: border-box;
+  //debug
+  //  outline: 1px solid red;
+}
+
+
+[data-theme="dark"] {
+  @include theme('dark');
+}
+
+[data-theme="light"] {
+  @include theme('light');
+}
+
+body, app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Roboto Light", sans-serif;
+
+  transition: background-color, color 0.3s ease;
+
+  @include respond-to('md') {
+    min-height: 100dvh;
+  }
+}
+
+app-root {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr;
+  grid-template-areas: "topbar" "content";
+}
+
+.topbar {
+  grid-area: topbar;
+}
+
+.content {
+  grid-area: content;
+}
+
+.tapbar {
+  height: 40px;
+}
+
+
+.card {
+  background-color: $light-background-color;
+  color: $light-text-color;
+  padding: 24px;
+  border-radius: 12%;
+}
+
+.typewriter-caret {
+  font-weight: bold;
+  color: var(--accent-color-2);
+  animation: blink-caret 1s step-end infinite;
+}
+
+@keyframes blink-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+//SCROLLBAR CUSTOMIZATION
+/* Custom Scrollbar for Light Theme */
+[data-theme="light"] ::-webkit-scrollbar {
+  width: 6px; /* Reduced from 8px to 6px */
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--accent-color-2); /* Swapped from color-1 to color-2 */
+  border-radius: 4px;
+}
+
+/* Custom Scrollbar for Dark Theme */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 6px; /* Reduced from 8px to 6px */
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--accent-color-1); /* Swapped from color-2 to color-1 */
+  border-radius: 4px;
+}
+
+/* For other browsers like Firefox */
+[data-theme="light"] {
+  scrollbar-color: var(--accent-color-2) var(--background-color); /* Swapped from color-1 to color-2 */
+  scrollbar-width: thin;
+}
+
+[data-theme="dark"] {
+  scrollbar-color: var(--accent-color-1) var(--background-color); /* Swapped from color-2 to color-1 */
+  scrollbar-width: thin;
+}

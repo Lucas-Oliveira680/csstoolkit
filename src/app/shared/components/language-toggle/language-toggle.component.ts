@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {TranslateService} from "@ngx-translate/core";
 import {LanguageService} from "src/app/shared/services/language.service";
 
 @Component({
