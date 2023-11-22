@@ -1,0 +1,60 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: "preview settings";
+  place-items: center;
+  margin-top: 80px;
+
+
+  .preview {
+    grid-area: preview;
+
+    .box-wrapper {
+      overflow: auto;
+      width: 500px;
+      height: 500px;
+      border: 1px solid var(--text-color);
+      display: grid;
+      place-items: center;
+
+      .preview-box {
+        width: 400px;
+        height: 400px;
+        background-color: var(--primary-color);
+        border: 10px solid var(--accent-color-1);
+      }
+    }
+
+  }
+
+  .settings {
+    grid-area: settings;
+    height: 500px;
+    width: 100%;
+    padding: 20px;
+
+    .sliders {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .setting {
+        display: flex;
+        gap: 16px;
+
+        .unit {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+    }
+  }
+}
+
+.accent {
+  color: var(--swappable-accent);
+  font-weight: bold;
+}

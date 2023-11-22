@@ -1,0 +1,87 @@
+<div class="grid">
+  <div class="preview">
+
+    <div class="box-wrapper">
+      <div [ngStyle]="{
+      'border': borderStyle+' '+ borderWidth+borderLengthUnit +' '+ borderColor,
+      'border-top-right-radius': borderTopRightRadius+borderRadiusLengthUnit,
+      'border-bottom-right-radius': borderBottomRightRadius+borderRadiusLengthUnit,
+      'border-top-left-radius': borderTopLeftRadius+borderRadiusLengthUnit,
+      'border-bottom-left-radius': borderBottomLeftRadius+borderRadiusLengthUnit
+      }"
+           class="preview-box"></div>
+    </div>
+    <div class="code-snippet"></div>
+  </div>
+  <div class="settings">
+
+    <div class="sliders">
+
+      <div class="setting">
+        <div class="value">
+          <label>Border Width: {{borderWidth}}{{borderLengthUnit}}</label>
+          <input [(ngModel)]="borderWidth" max="100" min="0" type="range">
+
+        </div>
+        <div class="unit">
+          <label>Length Unit: <span class="accent">{{borderLengthUnit}}</span></label>
+          <select [(ngModel)]="borderLengthUnit">
+            <option *ngFor="let unit of lengthUnits" [value]="unit.symbol">{{unit.name}} {{unit.symbol}}</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="setting">
+        <label>Border Style:</label>
+        <select [(ngModel)]="borderStyle">
+          <option value="solid">Solid</option>
+          <option value="dotted">Dotted</option>
+          <option value="dashed">Dashed</option>
+        </select>
+      </div>
+
+      <div class="setting">
+        <label>Border Color:</label>
+        <input [(ngModel)]="borderColor" type="color">
+
+      </div>
+
+      <div class="setting">
+        <label>Border radius</label>
+
+        <div class="value">
+          <div class="border-radius-grid">
+            <div>
+              <label>Border top right radius: {{borderTopRightRadius}}px</label>
+              <input [(ngModel)]="borderTopRightRadius" max="100" min="0" type="range">
+            </div>
+
+            <div>
+              <label>Border bottom right radius: {{borderBottomRightRadius}}px</label>
+              <input [(ngModel)]="borderBottomRightRadius" max="100" min="0" type="range">
+            </div>
+
+            <div>
+              <label>Border bottom left radius: {{borderBottomLeftRadius}}px</label>
+              <input [(ngModel)]="borderBottomLeftRadius" max="100" min="0" type="range">
+            </div>
+
+            <div>
+              <label>Border top left radius: {{borderTopLeftRadius}}px</label>
+              <input [(ngModel)]="borderTopLeftRadius" max="100" min="0" type="range">
+            </div>
+          </div>
+        </div>
+        <div class="unit">
+          <label>Length Unit: <span class="accent">{{borderLengthUnit}}</span></label>
+          <select [(ngModel)]="borderRadiusLengthUnit">
+            <option *ngFor="let unit of lengthUnits" [value]="unit.symbol">{{unit.name}} {{unit.symbol}}</option>
+          </select>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
